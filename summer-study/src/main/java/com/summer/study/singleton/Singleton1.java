@@ -16,11 +16,11 @@ public class Singleton1 {
     }
 
     public static final Singleton1 getInstance(){
-        return LazyHolder.singleton;
+        return LazyHolder.INSTANCE;
     }
 
     private static class LazyHolder{
-        private static final Singleton1 singleton = new Singleton1();
+        private static final Singleton1 INSTANCE = new Singleton1();
     }
 
 }
