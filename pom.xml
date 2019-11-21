@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.summer</groupId>
+    <artifactId>summer-portal</artifactId>
+    <version>1.0.0</version>
+    <modules>
+        <module>summer-study</module>
+    </modules>
+
+    <packaging>pom</packaging>
+    <description>summer's portal</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <fastjson.version>1.2.46</fastjson.version>
+        <dubbo-starter.version>1.0.10</dubbo-starter.version>
+        <dubbo.version>2.6.0</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
+        <mybatis.version>1.3.1</mybatis.version>
+        <nekohtml.version>1.9.20</nekohtml.version>
+        <xml-apis.version>1.4.01</xml-apis.version>
+        <batik-ext.version>1.9.1</batik-ext.version>
+        <jsoup.version>1.11.2</jsoup.version>
+        <httpclient.version>4.5.5</httpclient.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <mapper-starter.version>1.2.3</mapper-starter.version>
+        <jedis.version>2.9.0</jedis.version>
+        <jest.version>5.3.3</jest.version>
+        <jna.version>4.5.1</jna.version>
+        <beanUtils.version>1.9.3</beanUtils.version>
+        <lombok.version>1.18.6</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
