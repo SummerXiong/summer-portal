@@ -15,12 +15,12 @@
     <packaging>pom</packaging>
     <description>summer's portal</description>
 
-    <parent>
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
         <relativePath/>
-    </parent>
+    </parent>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -58,6 +58,23 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- 管理Mavne项目依赖的版本 -->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>Brussels-SR6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -76,18 +93,44 @@
                 <version>${hessian.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${apache.commons.version}</version>
-            </dependency>
+            <!--============================= spring social 第三方登录 =============================
+             <dependency>
+                 <groupId>org.springframework.social</groupId>
+                 <artifactId>spring-social-config</artifactId>
+             </dependency>
 
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>2.6</version>
-            </dependency>
+             <dependency>
+                 <groupId>org.springframework.social</groupId>
+                 <artifactId>spring-social-core</artifactId>
+             </dependency>
+
+             <dependency>
+                 <groupId>org.springframework.social</groupId>
+                 <artifactId>spring-social-security</artifactId>
+             </dependency>
+
+             <dependency>
+                 <groupId>org.springframework.social</groupId>
+                 <artifactId>spring-social-web</artifactId>
+             </dependency>
+             -->
+
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

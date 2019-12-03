@@ -3,6 +3,7 @@ package com.summer.security.sms.config;
 import com.summer.security.handler.SmAuthenticationFailureHandler;
 import com.summer.security.handler.SmAuthenticationSuccessHandler;
 import com.summer.security.sms.filter.SmsCodeAuthenticationFilter;
+import com.summer.security.sms.handler.SmsCodeAuthenticationSuccessHandler;
 import com.summer.security.sms.provider.SmsCodeAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,6 +35,8 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
     @Autowired
     private SmAuthenticationFailureHandler smAuthenticationFailureHandler;
     @Autowired
+    private SmsCodeAuthenticationSuccessHandler smsCodeAuthenticationSuccessHandler;
+    @Autowired
     private UserDetailsService smUserDetailService;
 
     @Override
@@ -41,7 +44,7 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
 
         SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = new SmsCodeAuthenticationFilter();
         smsCodeAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(smAuthenticationSuccessHandler);
+        smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(smsCodeAuthenticationSuccessHandler);
         smsCodeAuthenticationFilter.setAuthenticationFailureHandler(smAuthenticationFailureHandler);
 
         SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();

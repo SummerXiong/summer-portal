@@ -40,6 +40,6 @@ public class SmUserDetailsService implements UserDetailsService {
          * 各种错误异常抛出
          */
         String password = passwordEncoder.encode("123456");
-        return new User(username, password, true, true, true, true, AuthorityUtils.NO_AUTHORITIES);
+        return new User(username, password, true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
     }
 }
