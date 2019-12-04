@@ -37,12 +37,12 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <!--============================= spring redis =============================
+        <!--============================= spring redis ============================= -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!--============================= spring social 第三方登录 =============================
              <dependency>

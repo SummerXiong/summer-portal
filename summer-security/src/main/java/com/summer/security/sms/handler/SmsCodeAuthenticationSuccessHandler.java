@@ -59,7 +59,7 @@ public class SmsCodeAuthenticationSuccessHandler implements AuthenticationSucces
                 throw new UnapprovedClientAuthenticationException("The client information does not exist, clinetId: " + clientId);
             }
 
-            if(StringUtils.equals(clientSecret, clientDetails.getClientSecret())){
+            if(!clientDetails.getClientSecret().equals(clientSecret)){
                 throw new UnapprovedClientAuthenticationException("The client secret does not match");
             }
 
@@ -102,6 +102,11 @@ public class SmsCodeAuthenticationSuccessHandler implements AuthenticationSucces
             throw new BadCredentialsException("Invalid basic authentication token");
         }
         return new String[]{token.substring(0, delim), token.substring(delim + 1)};
+    }
+
+    public static void main(String[] args) {
+        String s = new String(Base64.encode("summer:summer_secret".getBytes()));
+        System.out.println(s);
     }
 
 }
